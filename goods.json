@@ -1,13 +1,13 @@
 {
     "1234" : {
-        "name" : "classicalguitar",
+        "name" : "classic",
         "cost" : 40000,
         "description" : "A very melodic and sonorous musical instrument",
         "order" : 3,
         "img" : "guitar-1.png"
     },
     "1235" : {
-        "name" : "electricalguitar",
+        "name" : "electro",
         "cost" : 65000,
         "description" : "It makes very loud and powerful jjj and tututu sounds.",
         "order" : 4,

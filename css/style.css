@@ -1,5 +1,5 @@
 .cart {
-    width: 250px;
+    width: 200px;
     height: auto;
     border: 1px solid black;
     margin: 30px;
@@ -22,12 +22,19 @@
     font-size: 1.3rem;
     margin: 5px 0;
 }
+.cart .add-to-cart:hover {
+    background: #838383;
+}
+.cart .add-to-cart:active {
+    background: #46d41a;
+}
 .cart .add-to-cart {
     font-size: 1.1rem;
     background: black;
     color: white;
     padding: 10px 20px;
     border: none;
+    cursor: pointer;
 }
 .cart img {
     max-width: 100%;
