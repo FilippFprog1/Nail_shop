@@ -11,6 +11,7 @@ function goodsOut(data) {
         out +=`<div class="cart">`;
         out +=`<p class="name">${data[key].name}</p>`;
         out +=`<img src="images/${data[key].img}" alt=""></img>`;
+        out +=`<p class="descript">${data[key].description}</p>`;
         out +=`<div class="cost">${data[key].cost}</div>`;
         out +=`<button class="add-to-cart">Купить</button>`;
         out +=`</div>`;

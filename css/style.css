@@ -13,6 +13,11 @@
     text-transform: uppercase;
     margin-bottom: 15px;
 }
+.cart .descript {
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .cart .cost {
     font-size: 1.3rem;
     margin: 5px 0;
