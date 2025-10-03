@@ -41,6 +41,10 @@
     height: auto;
 }
 
+.cart-out {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
 
 .goods-out {
     border-top: 1px solid black;

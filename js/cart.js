@@ -25,15 +25,21 @@ function showCart() {
         var goods = data;
         var out = '';
         for (var id in cart) {
-            out += `<button data-id=${id} class="del-goods">-</button>`
+            out += `<div class = "cart-out">`;
+            out += `<button data-id=${id} class="del-goods">(-)</button>`;
             out += `<img src="images/${goods[id].img}">`;
-            out += `${goods[id].name}`;
-            out += `<p>${cart[id]}</p>`;
-            out +=`<div class="cost">${goods[id].cost}</div>`;
+            out += `\n${goods[id].name}`;
+            out += `<button data-id=${id} class="minus-goods">-</button>`;
+            out += `\n${cart[id]}`;
+            out += `<button data-id=${id} class="plus-goods">+</button>`;
+            out += `\n${cart[id]*goods[id].cost}`;
             out +=`<br>`;
+            out += `</div>`;
         }
         $('.main-cart').html(out);
         $('.del-goods').on('click', delGoods);
+        $('.plus-goods').on('click', plusGoods);
+        $('.minus-goods').on('click', minusGoods);
         });
     }
 }
@@ -44,6 +50,30 @@ function delGoods() {
     delete cart[id];
     saveCart();
     showCart();
+}
+
+function plusGoods() {
+    //добавляем товар в корзину
+    var id = $(this).attr('data-id');
+    cart[id]++;
+    saveCart();
+    showCart();
+}
+
+function minusGoods() {
+    //удаляем товар из корзины по штучно
+    var id = $(this).attr('data-id');
+    if (cart[id] == 1) {
+        delete cart[id];
+        saveCart();
+        showCart();
+    }
+    else {
+        cart[id]--;
+        saveCart();
+        showCart();
+    }
+    
 }
 
 function saveCart() {
@@ -57,6 +87,36 @@ function isEmpty(object) {
     return false;
 }
 
+function sendEmail() {
+    var ename = $('#ename').val();
+    var email = $('#email').val();
+    var ephone = $('#ephone').val();
+    if (ename!='' && email!='' && ephone!='') {
+        if (isEmpty(cart)) {
+            $.post(
+                "core/mail.php",
+                {
+                    "ename": ename,
+                    "email": email,
+                    "ephone": ephone,
+                    "cart": cart
+                },
+                function(data){
+                    console.log(data);
+                }
+            );
+        }
+        else {
+            alert("Корзина пуста!");
+        }
+    }
+    else {
+        alert("Заполните поля");
+    }
+}
+
 $(document).ready(function () {
     loadCart();
+    $('.send-email').on('click', sendEmail); //отправить письмо с заказом
+
 });
