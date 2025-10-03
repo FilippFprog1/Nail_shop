@@ -56,4 +56,5 @@ function loadCart() {
 
 $(document).ready(function () {
     init();
+    loadCart()
 });
