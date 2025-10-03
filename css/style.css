@@ -52,3 +52,8 @@
     display: block;
     clear: both;
 }
+
+.main-cart img {
+    max-width: 10%;
+    height: auto;
+}
