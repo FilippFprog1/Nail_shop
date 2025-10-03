@@ -14,7 +14,7 @@ function showCart() {
         var goods = data;
         var out = '';
         for (var key in cart) {
-            out += `<img src="images\${goods[id].img}">`;
+            out += `<img src="images/${goods[id].img}">`;
         }
         $('.main-cart').html(out);
     });
