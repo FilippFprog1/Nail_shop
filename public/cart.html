@@ -12,9 +12,17 @@
     <main>
         <div class="main-cart"></div>
         <div class="email-field">
-            <p>Имя: <input type="text" id="ename"></p>
-            <p>Email: <input type="text" id="email"></p>
-            <p>Телефон: <input type="text" id="ephone"></p>
+            <p>Имя: 
+            <input type="text" id="ename" name="ename" autocomplete="name" required>
+            </p>
+
+            <p>Email: 
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            </p>
+
+            <p>Телефон: 
+            <input type="tel" id="ephone" name="ephone" autocomplete="tel" required>
+            </p>
             <p><button class="send-email">Заказать</button></p>
         </div>
     </main>
