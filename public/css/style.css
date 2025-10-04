@@ -46,6 +46,14 @@
     border-bottom: 1px solid black;
 }
 
+.cart-button {
+    font-size: 1.1rem;
+    background: black;
+    color: white;
+    padding: auto;
+    margin-left:70%;
+}
+
 .goods-out {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
