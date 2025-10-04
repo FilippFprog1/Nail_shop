@@ -1,7 +1,7 @@
 <?php
 //читать файл json
 $json = file_get_contents('../goods.json');
-$json = json_decode($json);
+$json = json_decode($json, true);
 
 //письмо
 $message = '';
@@ -11,10 +11,31 @@ $message .= '<p>Почта: '.$_POST['email'].'</p>';
 $message .= '<p>Клиент: '.$_POST['ename'].'</p>';
 
 $cart = $_POST['cart'];
-
+$sum = 0;
 foreach ($cart as $id=>$count) {
-    $message .=$json[$id]['name'];
+    $message .=$json[$id]['name'].' --- ';
+    $message .=$count.' --- ';
+    $message .=$count*$json[$id]['cost'];
+    $message .='<br>';
+    $sum = $sum + $count*$json[$id]['cost'];
 }
+$message .='Всего: '.$sum;
+
 print_r($message);
+
+$to = 'fil.fomin.15@gmail.com'.',';
+$to .= $_POST['email'];
+$spectext = '<!DOCTYPE HTML><html><head><title>Заказ</title></head><body>';
+$headers = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+$mail = mail($to, 'Заказ в магазине', $spectext.$message.'</body></html>', $headers);
+if ($mail) {
+    echo 1;
+}
+else {
+    echo 0;
+}
+?>
 
 
