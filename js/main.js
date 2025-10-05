@@ -11,7 +11,7 @@ function goodsOut(data) {
     var g = data[key];
     out += `
       <article class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col shadow-amber-950">
-        <img src="images/${g.img}" alt="${escapeHtml(g.name)}" class="h-70 w-full object-cover">
+        <img src="images/${g.img}" alt="${escapeHtml(g.name)}" class="h-60 w-full object-cover">
         <div class="p-4 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold mb-1">${escapeHtml(g.name)}</h3>
           <p class="text-sm text-gray-500 mb-3 flex-1">${escapeHtml(g.description)}</p>

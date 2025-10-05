@@ -9,6 +9,7 @@ function sendEmail() {
   var ename = $('#ename').val().trim();
   var email = $('#email').val().trim();
   var ephone = $('#ephone').val().trim();
+  
 
   if (!ename || !email || !ephone) {
     alert("Заполните все поля!");
@@ -19,7 +20,7 @@ function sendEmail() {
     ename: ename,
     email: email,
     ephone: ephone,
-    cart: JSON.stringify(cart, null, 2)
+    order_id: '1'
   };
 
   emailjs.send("service_zi09q8f", "template_w5r2dds", templateParams)
@@ -29,8 +30,10 @@ function sendEmail() {
       localStorage.removeItem('cart');
       cart = {};
       showCart();
+      alert("Успешно сформирован!");
     }, function(error) {
       console.error("FAILED...", error);
+      alert("Ошибка при формировании запроса!");
       $('#result').html("❌ Ошибка при отправке заказа");
     });
 }
@@ -64,7 +67,7 @@ function showCart() {
       var lineSum = qty * g.cost;
       totalSum += lineSum;
       out += `
-        <div class="flex items-center gap-4 p-3 border rounded bg-white">
+        <div class="flex items-center gap-4 p-3 border rounded shadow-sm bg-white shadow-amber-950">
           <img src="images/${g.img}" class="w-20 h-20 object-cover rounded" alt="${escapeHtml(g.name)}">
           <div class="flex-1">
             <div class="font-medium">${escapeHtml(g.name)}</div>
