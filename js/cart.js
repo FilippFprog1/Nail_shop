@@ -1,5 +1,42 @@
 var cart = {};
 
+function sendEmail() {
+  if (!isEmpty(cart)) {
+    alert("Корзина пуста!");
+    return;
+  }
+
+  var ename = $('#ename').val().trim();
+  var email = $('#email').val().trim();
+  var ephone = $('#ephone').val().trim();
+
+  if (!ename || !email || !ephone) {
+    alert("Заполните все поля!");
+    return;
+  }
+
+  var templateParams = {
+    ename: ename,
+    email: email,
+    ephone: ephone,
+    cart: JSON.stringify(cart, null, 2)
+  };
+
+  emailjs.send("service_zi09q8f", "template_w5r2dds", templateParams)
+    .then(function(response) {
+      console.log("SUCCESS!", response.status, response.text);
+      $('#result').html("✅ Заказ успешно отправлен!");
+      localStorage.removeItem('cart');
+      cart = {};
+      showCart();
+    }, function(error) {
+      console.error("FAILED...", error);
+      $('#result').html("❌ Ошибка при отправке заказа");
+    });
+}
+
+
+
 function loadCart() {
   if (localStorage.getItem('cart')) {
     cart = JSON.parse(localStorage.getItem('cart'));
