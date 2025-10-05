@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     $message .= '<p><b>Всего: ' . $sum . ' руб.</b></p>';
 
-    $to = "fil.fomin07@inbox.ru"; // ← твоя почта
+    $to = "fil.fomin07@inbox.ru"; 
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
     $headers .= "From: Nail Shop <no-reply@nailshop.com>\r\n";

@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NailGuitar shop</title>
-    <link rel="icon" type="image/x-icon" href="images/mainicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NailGuitar shop</title>
+  <link rel="icon" type="image/x-icon" href="images/mainicon.ico" />
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <!-- <div class="cart">
-        <p class="name">Iba</p>
-        <img src="images/electric-guitar-1.png" alt="">
-        <div class="cost">60000</div>
-        <button class="add-to-cart">Купить</button>
-    </div> -->
+<body class="bg-gray-50 text-gray-800 min-h-screen">
 
-    <header>
-    </header>
-    <main>
-        <p>
-            <a href="cart.html" class="cart-button">Перейти в корзину</a>
-        </p>
-        <div class="mini-cart"></div>
-        <div class="goods-out"></div>
-    </main>
-    <footer>
+  <header class="relative bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-semibold">NailGuitar</a>
 
-    </footer>
+      <a href="cart.html"
+         id="open-cart"
+         class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded px-3 py-2 shadow relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 7M7 13l-2 7h12l-2-7"/>
+        </svg>
+        Корзина
+        <span id="mini-count" class="bg-white text-blue-600 rounded-full px-2 py-0.5 text-[10px] font-semibold">0</span>
+      </a>
+    </div>
+  </header>
 
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/main.js"></script>
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="goods-out grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </main>
+
+  <div class="mini-cart fixed right-4 bottom-4 z-40 w-80 max-w-full"></div>
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

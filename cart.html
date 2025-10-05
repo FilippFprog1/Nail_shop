@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корзина</title>
-    <link rel="icon" type="image/x-icon" href="images/mainicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Корзина</title>
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-    </header>
-    <main>
-        <p>
-            <a href="index.html" class="cart-button">Перейти на главную страницу</a>
-        </p>
-        <div class="main-cart"></div>
-        <div class="email-field">
-            <p>Имя: 
-            <input type="text" id="ename" name="ename" autocomplete="name" required>
-            </p>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+      <a href="index.html" class="text-lg font-semibold text-blue-600">← Вернуться</a>
+    </div>
+  </header>
 
-            <p>Email: 
-            <input type="email" id="email" name="email" autocomplete="email" required>
-            </p>
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-4">Ваша корзина</h1>
+    <div class="main-cart bg-white rounded-lg shadow p-4 mb-6"></div>
 
-            <p>Телефон: 
-            <input type="tel" id="ephone" name="ephone" autocomplete="tel" required>
-            </p>
-            <p><button class="send-email">Заказать</button></p>
-        </div>
-    </main>
-    <footer>
+    <section class="bg-white rounded-lg shadow p-4">
+      <h2 class="font-semibold mb-3">Данные для заказа</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input id="ename" class="border rounded px-3 py-2" placeholder="Имя" required>
+        <input id="email" type="email" class="border rounded px-3 py-2" placeholder="Email" required>
+        <input id="ephone" class="border rounded px-3 py-2" placeholder="Телефон" required>
+      </div>
+      <div class="mt-4 flex items-center gap-3">
+        <button class="send-email bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Заказать</button>
+        <button id="clear-all" class="text-sm text-red-600">Очистить корзину</button>
+      </div>
+    </section>
+  </main>
 
-    </footer>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/cart.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    $('#clear-all').on('click', function(){ localStorage.removeItem('cart'); location.reload(); });
+  </script>
 </body>
 </html>
