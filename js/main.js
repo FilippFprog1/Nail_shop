@@ -10,7 +10,7 @@ function goodsOut(data) {
     if (!data.hasOwnProperty(key)) continue;
     var g = data[key];
     out += `
-      <article class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
+      <article class="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col shadow-amber-950">
         <img src="images/${g.img}" alt="${escapeHtml(g.name)}" class="h-48 w-full object-cover">
         <div class="p-4 flex-1 flex flex-col">
           <h3 class="text-lg font-semibold mb-1">${escapeHtml(g.name)}</h3>
